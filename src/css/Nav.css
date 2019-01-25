@@ -1,0 +1,68 @@
+.Nav{
+    position: fixed;
+    background-color:#4267B2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 0px 1px 0px black;
+    min-width: 500px;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space:nowrap;
+    width:100%;
+}
+.Logo{
+    padding:7px;
+}
+.Logo__svg{
+    font-size:27px;
+    color:white;
+}
+
+.SideNav{
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    margin-left:10px;
+}
+.NavItem{
+  white-space: nowrap;
+}
+.NavItem, .NavIcon{
+    padding:0 8px;
+}
+.NavItem:hover{
+  background-color:#3B5DA0;
+  cursor: pointer;
+}
+.NavImg{
+    z-index:2;
+    padding-right: 0px;
+}
+.NavIcon__img{
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+}
+.NavIcon__svg{
+    font-size: 18px;
+    color: rgba(0,0,0,0.6);
+}
+.NavIcon__svg:hover{
+    color: rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+.NavItem__NavText{
+    color:white;
+    font-size:11px;
+    font-weight:600;
+    line-height: 20px;
+}
+.left-pipe{
+    height: 18px;
+    top: 12px;
+    width: 1px;
+    margin: 0 2px;
+    background-color: rgba(0,0,0,0.1);
+
+}

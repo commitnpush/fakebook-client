@@ -1,0 +1,52 @@
+.SearchBar{
+    flex-grow: 1;
+    background-color:white;
+    border-radius: 3px;
+    padding-left:6px;
+    max-width:600px;
+    min-width:300px;
+    margin-right: auto;
+    display: flex;
+}
+.SearchBar__input{
+    flex-grow: 1;
+    color:#1d2129;
+    font-size:14px;
+    border:none;
+    outline: none;
+    padding-left: 0;
+    padding-right: 5px;
+    padding-top: 0;
+    height: 23px;   
+}
+.SearchBar__input:focus::placeholder{
+    color:#cfcfcf;
+}
+
+.SearchBar__btn{
+    width:45px;
+    height:25px;
+    border:none;
+    outline:none;
+    background-color:rgb(244, 244, 244);
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.SearchBar__btn:hover{
+  background-color:rgb(230, 230, 230);
+  cursor:pointer;
+}
+.SearchBar__btn--focus{
+    background-color:#3F80FE;
+}
+.SearchBar__btn--focus:hover{
+  background-color:#3F80FE;
+}
+
+.SearchBar__btn__svg{
+    color:#545B69;
+    font-size:13px;
+}
+.SearchBar__btn__svg--focus{
+    color:#F4F4F5 !important;
+}
