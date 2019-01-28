@@ -32,6 +32,7 @@
     padding:0 8px;
 }
 .NavItem:hover{
+  border-radius: 4px;
   background-color:#3B5DA0;
   cursor: pointer;
 }

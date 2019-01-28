@@ -39,6 +39,7 @@
 
 .RecentSearch__header__update:hover{
   text-decoration: underline;
+  cursor:pointer;
 }
 
 

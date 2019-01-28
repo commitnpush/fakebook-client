@@ -8,8 +8,31 @@ class SearchBar extends Component{
         super(...arguments);
         this.state = {
             searchText: '',
-            isFocus:false
+            isFocus:false,
+            recentSearchTexts:[]
         }
+    }
+    componentDidMount(){
+      this.getRecentSearch();
+    }
+    getRecentSearch = async () => {
+        const recentSearchTexts = await fetch("http://localhost:8080/recent-search")
+        .then(response => response.json())
+        .catch(err => console.log(err));
+        console.log(recentSearchTexts);
+        this.setState({recentSearchTexts});
+
+    }
+    addRecentSearch = async (text) => {
+      const recentSearchTexts = await fetch("http://localhost:8080/recent-search",
+        {
+          method:"post",
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({"text":text}),
+      })
+      .then(response => response.json())
+      .catch(err => console.log(err));
+      this.setState({recentSearchTexts});
     }
     searchHandler = (e) => {
         this.setState({
@@ -17,7 +40,8 @@ class SearchBar extends Component{
         })
     }
     submitHandler = (e) => {
-        
+
+        this.addRecentSearch(document.getElementById("SearchBar__input").value);
     }
     focusHandler = (e) => {
         document.getElementById("SearchBar__btn").classList.toggle("SearchBar__btn--focus");
@@ -30,11 +54,11 @@ class SearchBar extends Component{
     render(){
         return (
             <div className="SearchBar">
-                <input className="SearchBar__input" type="text" value={this.state.searchText} placeholder="검색" onChange={this.searchHandler} onFocus={this.focusHandler} onBlur={this.focusHandler}/>
+                <input id="SearchBar__input"className="SearchBar__input" type="text" value={this.state.searchText} placeholder="검색" onChange={this.searchHandler} onFocus={this.focusHandler} onBlur={this.focusHandler}/>
                 <button id="SearchBar__btn" className="SearchBar__btn" type="button" onClick={this.submitHandler}>
                     <FontAwesomeIcon id="SearchBar__btn__svg" icon="search" className="SearchBar__btn__svg"/>
                 </button>
-                {this.state.isFocus?(<RecentSearch/>):null}
+                {this.state.isFocus?(<RecentSearch recentSearchTexts={this.state.recentSearchTexts}/>):null}
             </div>
         );
     }

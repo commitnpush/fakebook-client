@@ -4,11 +4,6 @@ import 'css/Nav.css';
 import SearchBar from "./SearchBar";
 
 class Nav extends Component{
-    constructor(){
-        super(...arguments);
-        
-    }
-    
     render(){
         return (
             <div className="Nav">
@@ -33,7 +28,7 @@ function SideNav(){
     return (
         <div className="SideNav">
             <NavImg>
-                <img className="NavIcon__img" style={{"margin-right":"-2px"}}src="https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-1/p320x320/14590396_1116166391832697_5236054864862170502_n.jpg?_nc_cat=100&_nc_ht=scontent-icn1-1.xx&oh=7e818f72442b1417bec8b798ed445bd8&oe=5CC74D33" alt=""/>
+                <img className="NavIcon__img"src="https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-1/p320x320/14590396_1116166391832697_5236054864862170502_n.jpg?_nc_cat=100&_nc_ht=scontent-icn1-1.xx&oh=7e818f72442b1417bec8b798ed445bd8&oe=5CC74D33" alt=""/>
             </NavImg>
             <NavItem>
                 <NavText text="장동혁"/>

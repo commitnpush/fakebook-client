@@ -6,9 +6,7 @@ import { map } from 'rsvp';
 export default class RecentSearch extends Component{
     constructor(){
         super(...arguments);
-        this.state = {
-            searchTexts:["코미디 빅리그", "세월호","스카이캐슬"]
-        }
+        
     }
     render(){
         return (
@@ -18,13 +16,13 @@ export default class RecentSearch extends Component{
                     <span className="RecentSearch__header__update">수정</span>
                 </header>
                 <section>
-                    {this.state.searchTexts.map(v=>{
+                    {this.props.recentSearchTexts.map((v,i)=>{
                         return (
-                          <div class="SearchTextBox">
-                            <div class="RecentSearch__SearchTextIcon">
+                          <div className="SearchTextBox" key={i}>
+                            <div className="RecentSearch__SearchTextIcon">
                               <FontAwesomeIcon icon="search"/>
                             </div>
-                            <div class="RecentSearch__SearchText">{v}</div>
+                            <div className="RecentSearch__SearchText">{v.text}</div>
                           </div>
                         );
                     })}
