@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'css/RecentSearch.css';
-import { map } from 'rsvp';
 
 export default class RecentSearch extends Component{
     constructor(){
         super(...arguments);
-        
     }
     render(){
         return (
