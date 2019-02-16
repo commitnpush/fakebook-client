@@ -7,9 +7,13 @@ class Nav extends Component{
     render(){
         return (
             <div className="Nav">
+              <div className="col-pd-1"></div>
+              <div className="Nav__items">
                 <Logo/>
                 <SearchBar/>
                 <SideNav/>
+              </div>
+              <div className="col-pd-2"></div>
             </div>
         );
     }

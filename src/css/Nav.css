@@ -2,15 +2,19 @@
     position: fixed;
     background-color:#4267B2;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    
     box-shadow: 1px 0px 1px 0px black;
-    min-width: 500px;
-    max-width: 100%;
-    overflow-x: auto;
     width:100%;
 }
+.Nav__items{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  overflow-x: auto;
+  width:1000px;
+}
 .Logo{
+    flex:0 0 auto;
     padding:7px;
 }
 .Logo__svg{

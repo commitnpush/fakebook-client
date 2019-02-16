@@ -22,17 +22,16 @@
   flex-basis: 180px;
 }
 .Articles{
-  flex-basis:500px;
+  flex-basis:492px;
   margin-left:14px;
 }
 .right-menu{
-  flex-basis:308px;
+  flex-basis:300px;
   margin-left:14px;
   background-color: rgba(0,0,255,0.1)
 }
 .col-pd-1{
   flex:1 1 auto;
-  flex-grow:1;
 }
 .col-pd-2{
   flex:2 2 auto;

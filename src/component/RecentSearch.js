@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'css/RecentSearch.css';
 
 export default class RecentSearch extends Component{
-    constructor(){
-        super(...arguments);
-    }
     render(){
         return (
             <div className="RecentSearch">

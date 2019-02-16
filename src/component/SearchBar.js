@@ -19,20 +19,20 @@ class SearchBar extends Component{
         const recentSearchTexts = await fetch("http://localhost:8080/recent-search")
         .then(response => response.json())
         .catch(err => console.log(err));
-        console.log(recentSearchTexts);
         this.setState({recentSearchTexts});
 
     }
-    addRecentSearch = async (text) => {
-      const recentSearchTexts = await fetch("http://localhost:8080/recent-search",
+    addRecentSearch = (text) => {
+      fetch("http://localhost:8080/recent-search",
         {
           method:"post",
           headers:{'Content-Type':'application/json'},
           body:JSON.stringify({"text":text}),
       })
-      .then(response => response.json())
+      .then(response => {
+        this.getRecentSearch();
+      })
       .catch(err => console.log(err));
-      this.setState({recentSearchTexts});
     }
     searchHandler = (e) => {
         this.setState({

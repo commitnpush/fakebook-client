@@ -1,5 +1,5 @@
 .SearchBar{
-    flex-grow: 1;
+    flex: 1 1 auto;
     background-color:white;
     border-radius: 3px;
     padding-left:6px;
@@ -9,7 +9,7 @@
     display: flex;
 }
 .SearchBar__input{
-    flex-grow: 1;
+    flex: 1 1 100%;
     color:#1d2129;
     font-size:14px;
     border:none;
