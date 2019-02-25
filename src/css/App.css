@@ -1,5 +1,5 @@
 .content{
-  height:1000px;
+  min-height:1000px;
   background-color: #E9EBEE;
   padding-top:54px;
   width:100%;
@@ -28,7 +28,7 @@
 .right-menu{
   flex-basis:300px;
   margin-left:14px;
-  background-color: rgba(0,0,255,0.1)
+  background-color: rgba(0,0,255,0.1);
 }
 .col-pd-1{
   flex:1 1 auto;

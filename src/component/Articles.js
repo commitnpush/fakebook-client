@@ -6,11 +6,34 @@ export default class Articles extends Component{
   constructor(){
     super(...arguments);
     this.state = {
-      articles : []
+      articles : [],
+      requesting: false
     }
   }
   componentDidMount(){
     this.getArticles();
+    window.addEventListener("scroll", this.scrollHandler);
+  }
+
+  scrollHandler = (e) => {
+    if(this.state.requesting) return;
+    var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    var scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+    var clientHeight = document.documentElement.clientHeight || window.innerHeight;
+    var scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+    if (scrolledToBottom) {
+      let lastIndex = this.state.articles
+      [this.state.articles.length-1].id;
+      setTimeout(()=>{
+        this.getMoreArticles(lastIndex);
+      },200);
+      this.setState({requesting:true});
+    }
+    // if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
+      
+      
+    // }
   }
 
   getArticles = () =>{
@@ -20,6 +43,19 @@ export default class Articles extends Component{
       this.setState({articles});
     })
     .catch(err => console.log(err));
+  }
+
+  getMoreArticles = (id) =>{
+    
+      fetch(`http://localhost:8080/article/more/${id}`)
+      .then(response => response.json())
+      .then(articles => {
+        if(articles.length === 0) return;
+        this.setState({articles:this.state.articles.concat(articles)});
+        this.setState({requesting:false});
+      })
+      .catch(err => console.log(err));
+    
   }
   render(){
     return (
@@ -94,9 +130,9 @@ function Article({article}){
         {article.content}
       </div>
       <div className="Article__footer">
-        <div className="Aricle__footer__menu"><FontAwesomeIcon icon={["far","thumbs-up"]}/> 좋아요</div>
-        <div className="Aricle__footer__menu"><FontAwesomeIcon icon={["far","comment-alt"]}/> 댓글</div>
-        <div className="Aricle__footer__menu"><FontAwesomeIcon icon={["fas", "reply"] } flip="horizontal"/> 공유하기</div>
+        <div className="Article__footer__menu"><FontAwesomeIcon icon={["far","thumbs-up"]}/> 좋아요</div>
+        <div className="Article__footer__menu"><FontAwesomeIcon icon={["far","comment-alt"]}/> 댓글</div>
+        <div className="Article__footer__menu"><FontAwesomeIcon icon={["fas", "reply"] } flip="horizontal"/> 공유하기</div>
       </div>
     </div>
   )
